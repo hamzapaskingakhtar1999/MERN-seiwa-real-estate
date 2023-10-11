@@ -2,11 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import userRouter from "./routes/user.router.js ";
+import userRouter from "./routes/user.route.js ";
+import authRouter from "./routes/auth.route.js";
 
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
 
 /*  */
 
@@ -36,3 +39,4 @@ app.get("/", (req, res) => {
 */
 
 app.use("/user", userRouter);
+app.use("/auth", authRouter);
